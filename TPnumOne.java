@@ -11,7 +11,7 @@ class TPnumOne {
 
   static void noteDesCours(Scanner scanner) {
     int numDesCours;
-    // Utilisation de la boucle do...while pour vérifier l'entré du user et
+    // Utilisation de la boucle do...while pour vérifier l'entré du user et--
     // s'assurer qu'il entre une valeur comprise entre 0 et 20
     do {
       String message = "Veuillez saisir le nombre de cours d'un étudiant";

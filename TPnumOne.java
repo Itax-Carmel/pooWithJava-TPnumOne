@@ -72,18 +72,22 @@ class TPnumOne {
     /* S = V s² => s² = (resultInterro - moyPonderee)²---s² = variance */
     int variance[] = new int[numDesCours];
     for (int i = 0; i < resultInterro.length; i++) {
-      variance[i] = (resultInterro[i] - moyPonderee);
+      variance[i] = (resultInterro[i] - moyPonderee);// xi-moyPonderee
     }
-    int ecartTypeCarree = 0;
-    int ecartType = 0;
+    int varianceCarree[] = new int[numDesCours];
+    double ecartType = 0;
     for (int i = 0; i < variance.length; i++) {
-      ecartTypeCarree = ecartTypeCarree + (Math.pow((variance[i] - moyPonderee), 2));
+      varianceCarree[i] = (variance[i] * variance[i]);
     }
-    ecartType = Math.sqrt(ecartTypeCarree);
+    double varianceTotal = 0;
+    for (int i = 0; i < varianceCarree.length; i++) {
+      varianceTotal = varianceTotal + varianceCarree[i];
+    }
+    ecartType = Math.sqrt(varianceTotal);
     System.out.println("L'ecart type obtenu par cet étudiant est: " + ecartType);
     // le coefficient de variation pour les résultats obtenus
     /* CV = S / moyPonderee */
-    int cv = (ecartType / moyPonderee) * 100;
+    double cv = (ecartType / moyPonderee) * 100;
     if (cv > 30) {
       System.out.println("Forte dispersion: " + cv + "%");
     } else if (cv >= 15 || cv <= 30) {
